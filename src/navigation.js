@@ -28,6 +28,7 @@ function navigator() {
   } else {
     homePage();
   }
+
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
@@ -67,7 +68,6 @@ function categoriesPage() {
   categoriesPreviewSection.classList.add('inactive');
   genericSection.classList.remove('inactive');
   movieDetailSection.classList.add('inactive');
-  
 
   // ['#category', 'id-name']
   const [_, categoryData] = location.hash.split('=');
@@ -93,6 +93,10 @@ function movieDetailsPage() {
   categoriesPreviewSection.classList.add('inactive');
   genericSection.classList.add('inactive');
   movieDetailSection.classList.remove('inactive');
+
+  // ['#movie', '234567']
+  const [_, movieId] = location.hash.split('=');
+  getMovieById(movieId);
 }
 
 function searchPage() {
